@@ -1711,3 +1711,41 @@ section,
       background-position: 0% 50%;
   }
 }
+
+.contact-map iframe {
+  width: 100%;
+  max-width: 850px;
+  height: 300px;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .footer-about .logo, .footer-links h4, .footer-newsletter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack elements vertically */
+    text-align: center;    /* Center text alignment */
+    margin: 0 auto;        /* Center the logo horizontally */
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-info, .footer-contact{
+    margin-left: 30px !important;
+  }
+
+  .footer .footer-links ul li {
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer .footer-links ul li:first-child {
+    padding-top: 0;
+  }
+}
