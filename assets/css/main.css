@@ -998,7 +998,14 @@ section,
 .features-item .img-fluid {
   border-radius: 15px; 
   position:relative;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  border: 2px solid #ddd;
+}
+
+#about .img-fluid {
+  border-radius: 15px; 
+  position:relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
   border: 2px solid #ddd;
 }
 
