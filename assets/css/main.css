@@ -995,6 +995,14 @@ section,
 .features .features-item p:last-child {
   margin-bottom: 0;
 }
+.features-item .img-fluid {
+  border-radius: 15px; 
+  position:relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  border: 2px solid #ddd;
+}
+
+
 
 /*--------------------------------------------------------------
 # Services Section
