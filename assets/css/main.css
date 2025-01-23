@@ -591,6 +591,11 @@ h6 {
   margin-bottom: 5px;
 }
 
+.footer .footer-contact a {
+  margin-left: 5px;
+  color: white;
+}
+
 .footer-newsletter{
   line-height: 1;
 }
