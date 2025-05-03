@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->addReplyTo($email, $name);
 
         // Email subject
-        $mail->Subject = "New Contact Form Submission $name";
+        $mail->Subject = "New Inquiry From Customer $name";
 
         // Load email template
         $emailBody = file_get_contents('email_template.html');
