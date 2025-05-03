@@ -164,6 +164,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />  
   
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lfw5ywrAAAAAFpYkORv3Isd3Uw8D0dFmof7YwmE"></script>
 </head>
 <body class="index-page">
 
@@ -522,7 +523,7 @@
     <section id="contact_form" class="contact_form section light-background">
       <div class="container" data-aos="fade-up">
         <div class="form-wrapper">
-          <form action="send_mail.php" method="POST">
+          <form id="contact-form" action="send_mail.php" method="POST">
             <h2>Contact Us</h2>
 
             <div class="form-row">
@@ -595,7 +596,8 @@
               <div class="g-recaptcha" data-sitekey="6Lfw5ywrAAAAAFpYkORv3Isd3Uw8D0dFmof7YwmE"></div>
             </div>
 
-            <button type="submit" class="submit-btn">Send Message</button>
+            <!-- <button type="submit" class="submit-btn">Send Message</button> -->
+            <button class="g-recaptcha" data-sitekey="6Lfw5ywrAAAAAFpYkORv3Isd3Uw8D0dFmof7YwmE" data-callback='onSubmit' data-action='submit'> Submit </button>
           </form>
         </div>
       </div>
@@ -1027,4 +1029,11 @@
     });
   });
 
+</script>
+
+<!-- Replace the variables below. -->
+<script>
+  function onSubmit(token) {
+    document.getElementById("contact-form").submit();
+  }
 </script>
