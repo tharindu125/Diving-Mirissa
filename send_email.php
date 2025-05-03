@@ -1,10 +1,8 @@
 <?php
-
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php'; // Load Composer's autoloader
+require 'vendor/autoload.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -21,17 +19,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
     try {
         $mail->isSMTP();
-        $mail->Host = 'smtp-relay.brevo.com';
+        $mail->Host = 'smtp.hostinger.com';
         $mail->SMTPAuth = true;
-        $mail->Username = '896607001@smtp-brevo.com';
-        $mail->Password = 'QDNRjgJ6s8vUpPqK';
-        $mail->Port = 587;       
+        $mail->Username = 'info@divingmirissa.com';
+        $mail->Password = 'divingMirissa@123';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;     
+        
+        $mail->SMTPOptions = [
+            'ssl' => [
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            ]
+        ];
 
         // Email sender and recipients
         $mail->setFrom('info@divingmirissa.com', 'Diving Mirissa');
         $mail->addAddress('tharinduranaweera523@gmail.com');
         $mail->addAddress('info@divingmirissa.com');
-        $mail->addReplyTo($email, $name); // User's email for reply
+        $mail->addReplyTo($email, $name);
 
         // Email subject
         $mail->Subject = "New Contact Form Submission $name";
@@ -49,23 +56,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailBody = str_replace('{{participants}}', $participants, $emailBody);
         $emailBody = str_replace('{{note}}', nl2br($note), $emailBody);
 
-        // Email content
         $mail->isHTML(true);
-        // $mail->isHTML(isHtml: true);
-        $mail->Body = 'test';
+        $mail->Body = $emailBody;
 
-        // Send email
         if ($mail->send()) {
             http_response_code(200);
+            echo 'Message sent successfully';
         } else {
             http_response_code(500); 
+            echo 'Message could not be sent.';
         }
             
     } catch (Exception $e) {
         http_response_code(500); 
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
     }
+    
 } else {
     http_response_code(500); 
 }
-
 ?>

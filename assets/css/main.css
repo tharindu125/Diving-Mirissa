@@ -1781,7 +1781,7 @@ section,
   }
 }
 
-.contact_form form {
+.form-wrapper {
   background: #fff;
   padding: 30px;
   margin: auto;
@@ -1888,3 +1888,22 @@ section,
     gap: 10px;
   }
 }
+
+.form-status {
+  margin-bottom: 15px;
+  padding: 10px;
+  display: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.form-status.success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+.form-status.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
