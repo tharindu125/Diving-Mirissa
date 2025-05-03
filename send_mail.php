@@ -1,25 +1,12 @@
 <?php
 
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php'; // Load Composer's autoloader
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // CAPTCHA verification
-    $captcha = $_POST['g-recaptcha-response'];
-    $secretKey = "6Lfw5ywrAAAAAADlJ14gZhp1ubCZREzRIj5x4zjG";
-
-    $verifyResponse = file_get_contents(
-        "https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$captcha}"
-    );
-    $responseData = json_decode($verifyResponse);
-
-    if (!$responseData->success) {
-        echo "CAPTCHA verification failed. Please try again.";
-        exit;
-    }
 
     // Get inputs
     $name         = htmlspecialchars($_POST['name']);
@@ -33,13 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $mail = new PHPMailer(true);
     try {
-        // Server settings
         $mail->isSMTP();
-        $mail->Host = 'smtp-relay.brevo.com'; // Brevo SMTP server
+        $mail->Host = 'smtp-relay.brevo.com';
         $mail->SMTPAuth = true;
-        $mail->Port = 587;
-        $mail->Username = '896607001@smtp-brevo.com'; 
+        $mail->Username = '896607001@smtp-brevo.com';
         $mail->Password = 'QDNRjgJ6s8vUpPqK';
+        $mail->Port = 587;       
 
         // Email sender and recipients
         $mail->setFrom('info@divingmirissa.com', 'Diving Mirissa');
@@ -59,13 +45,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailBody = str_replace('{{phone}}', $mobile, $emailBody);
         $emailBody = str_replace('{{country}}', $country, $emailBody);
         $emailBody = str_replace('{{looking_for}}', $looking_for, $emailBody);
-        $emailBody = str_replace('{{participants}}', $participants, $emailBody);
         $emailBody = str_replace('{{experience}}', $experience, $emailBody);
+        $emailBody = str_replace('{{participants}}', $participants, $emailBody);
         $emailBody = str_replace('{{note}}', nl2br($note), $emailBody);
 
         // Email content
-        $mail->isHTML(isHtml: true);
-        $mail->Body = $emailBody;
+        $mail->isHTML(true);
+        // $mail->isHTML(isHtml: true);
+        $mail->Body = 'test';
 
         // Send email
         if ($mail->send()) {
