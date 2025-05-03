@@ -163,6 +163,7 @@
   <!-- AOS CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />  
   
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="index-page">
 
@@ -515,6 +516,89 @@
 
       </div>
 
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact_form" class="contact_form section light-background">
+      <div class="container" data-aos="fade-up">
+        <div class="form-wrapper">
+          <form action="send_mail.php" method="POST">
+            <h2>Contact Us</h2>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" name="name" id="name" required placeholder="e.g. John Doe">
+              </div>
+              <div class="form-group">
+                <label for="mobile">Mobile Number *</label>
+                <input type="tel" name="mobile" id="mobile" pattern="[0-9]{10,15}" required placeholder="e.g. 0771234567">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" name="email" id="email" required placeholder="e.g. john@gmail.com">
+              </div>
+              <div class="form-group">
+                <label for="country">Country *</label>
+                <input type="text" name="country" id="country" required placeholder="e.g. USA">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="looking_for">What Are You Looking For? *</label>
+                <select name="looking_for" id="looking_for" required>
+                  <option value="">-- Select an option --</option>
+                  <option>Scuba Diving</option>
+                  <option>Try Diving (Beginner Programme)</option>
+                  <option>Night Diving</option>
+                  <option>PADI Courses</option>
+                  <option>Snorkeling With Turtles</option>
+                  <option>Night Snorkeling</option>
+                  <option>Whales And Dolphins Watching Tours</option>
+                  <option>Fishing and Dolphin Watching Tours</option>
+                  <option>Sunset Boat Tours</option>
+                  <option>Kayak Tours</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="participants">How Many Participants? *</label>
+                <input type="number" name="participants" id="participants" min="1" required placeholder="e.g. 2">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Do You Have Experience Previously?</label>
+                <div class="radio-wrapper">
+                  <label class="radio-option">
+                    <input type="radio" name="experience" value="Yes" required>
+                    <span>Yes</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="experience" value="No" required>
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label for="note">Note (optional)</label>
+                <textarea name="note" id="note" rows="2" placeholder="Additional details..."></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="g-recaptcha" data-sitekey="6Lfw5ywrAAAAAFpYkORv3Isd3Uw8D0dFmof7YwmE"></div>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- Team Section -->

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>New Inquiry</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+    .container {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #007BFF;
+    }
+    p {
+      line-height: 1.5;
+    }
+    .label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>New Contact Form Submission</h2>
+    <p><span class="label">Name:</span> {{name}}</p>
+    <p><span class="label">Email:</span> {{email}}</p>
+    <p><span class="label">Phone:</span> {{phone}}</p>
+    <p><span class="label">Country:</span> {{country}}</p>
+    <p><span class="label">Looking For:</span> {{looking_for}}</p>
+    <p><span class="label">Participants:</span> {{participants}}</p>
+    <p><span class="label">Previous Experience:</span> {{experience}}</p>
+    <p><span class="label">Note:</span><br>{{note}}</p>
+  </div>
+</body>
+</html>

@@ -1780,3 +1780,111 @@ section,
     padding-top: 0;
   }
 }
+
+.contact_form form {
+  background: #fff;
+  padding: 30px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.contact_form h2 {
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.contact_form .form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact_form .form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.form-row .form-group {
+  flex: 1 1 45%;
+}
+
+.contact_form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.contact_form input,
+.contact_form select,
+.contact_form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.contact_form input:focus,
+.contact_form select:focus,
+.contact_form textarea:focus {
+  border-color: #28a745;
+}
+
+.contact_form textarea {
+  resize: vertical;
+}
+
+.contact_form .radio-wrapper {
+  display: flex;
+  gap: 30px;
+  margin-top: 8px;
+}
+
+.contact_form .radio-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.contact_form .radio-option input[type="radio"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.contact_form .g-recaptcha {
+  margin: 15px 0;
+}
+
+.contact_form button {
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact_form button:hover {
+  background-color: #218838;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .form-row .form-group {
+    flex: 1 1 100%;
+  }
+
+  .contact_form .radio-wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
