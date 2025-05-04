@@ -1017,33 +1017,43 @@
 
 </script>
 
+<!-- Form Submission -->
 <script>
-  document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent normal form submission
+  document.getElementById('contactForm').addEventListener('submit', async function (e) {
+    e.preventDefault(); // Prevent default form submission
 
     const form = e.target;
     const formData = new FormData(form);
     const statusDiv = document.getElementById('formStatus');
 
-    fetch('send_email.php', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => {
+    // Show "Processing..." message immediately
+    statusDiv.textContent = 'Processing... please wait';
+    statusDiv.className = 'form-status processing';
+    statusDiv.style.display = 'block';
+
+    try {
+      const response = await fetch('send_email.php', {
+        method: 'POST',
+        body: formData
+      });
+
       if (response.ok) {
         statusDiv.textContent = 'Message sent successfully!';
         statusDiv.className = 'form-status success';
-        statusDiv.style.display = 'block';
         form.reset(); // Clear the form
       } else {
-        return response.text().then(text => { throw new Error(text) });
+        const errorText = await response.text();
+        throw new Error(errorText);
       }
-    })
-    .catch(error => {
+    } catch (error) {
+      console.error(error);
       statusDiv.textContent = 'There was a problem sending your message.';
       statusDiv.className = 'form-status error';
-      statusDiv.style.display = 'block';
-      console.error(error);
-    });
+    }
+
+    // Hide message after 3 seconds
+    setTimeout(() => {
+      statusDiv.style.display = 'none';
+    }, 3000);
   });
 </script>

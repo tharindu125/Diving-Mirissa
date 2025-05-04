@@ -1781,6 +1781,7 @@ section,
   }
 }
 
+/* Contact Email form styles */
 .form-wrapper {
   background: #fff;
   padding: 30px;
@@ -1906,3 +1907,8 @@ section,
   border: 1px solid #f5c6cb;
 }
 
+.contact_form .form-status.processing {
+  background-color: #fff3cd;
+  color: #856404;
+}
+/* Contact Email form styles */
