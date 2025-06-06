@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $looking_for  = htmlspecialchars($_POST['looking_for']);
     $experience   = htmlspecialchars($_POST['experience']);
     $participants = intval($_POST['participants']);
+    $date         = htmlspecialchars($_POST['date']);
     $note         = htmlspecialchars($_POST['note']);
 
     $mail = new PHPMailer(true);
@@ -54,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailBody = str_replace('{{looking_for}}', $looking_for, $emailBody);
         $emailBody = str_replace('{{experience}}', $experience, $emailBody);
         $emailBody = str_replace('{{participants}}', $participants, $emailBody);
+        $emailBody = str_replace('{{date}}', $date, $emailBody);
         $emailBody = str_replace('{{note}}', nl2br($note), $emailBody);
 
         $mail->isHTML(true);

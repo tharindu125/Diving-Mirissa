@@ -1814,6 +1814,10 @@ section,
   flex: 1 1 45%;
 }
 
+.form-row .form-group-2 {
+  flex: 1 1 100%;
+}
+
 .contact_form label {
   font-weight: 600;
   margin-bottom: 6px;
