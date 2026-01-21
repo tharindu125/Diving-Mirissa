@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ];
 
         // Email sender and recipients
-        $mail->setFrom('info@divingmirissa.com', 'Diving Mirissa');
+        $mail->setFrom('info@divingmirissa.com', 'Diving Mirissa Padi Dive Center ');
         $mail->addAddress('Thasheenkavindra@gmail.com');
         $mail->addAddress('info@divingmirissa.com');
         $mail->addReplyTo($email, $name);
